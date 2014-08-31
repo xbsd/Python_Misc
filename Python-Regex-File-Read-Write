@@ -1,0 +1,14 @@
+input_file = sys.argv[1]
+output_file = sys.argv[2]
+
+f = open(input_file, 'r')
+wfile = open(output_file, 'w')
+import re
+for line in f:
+    #print line    
+    x = re.sub('\s+', ' ', re.sub(u'[(),-]',' ', line.decode('utf-8').lower()))
+    #print x
+    #print "----"
+    wfile.write(x.encode('utf-8')+'\n')
+f.close()
+wfile.close()
